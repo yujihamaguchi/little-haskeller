@@ -1,4 +1,10 @@
+{-# OPTIONS_GHC -Wno-missing-export-lists #-}
 module LittleHaskeller where
+
+-- Q000: zip と同様の機能の関数 myZip を書け
+myZip :: [a] -> [b] -> [(a, b)]
+myZip (x:xs) (y:ys) = (x, y) : myZip xs ys
+myZip _ _ = []
 
 -- Q001: Haskell の sum と同様の機能の関数 mySum を書け。
 -- (再帰を用いるパターン, foldl を用いるパターン)
@@ -16,5 +22,5 @@ mySum [] = 0
 mySum (x:xs) = x + mySum xs
 
 -- foldl
--- mySumFold :: (Num a) => [a] -> a
--- mySumFold = foldl (+) 0
+-- mySum :: (Num a) => [a] -> a
+-- mySum = foldl (+) 0
