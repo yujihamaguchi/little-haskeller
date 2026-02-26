@@ -3,8 +3,10 @@ module LittleHaskeller where
 
 -- Q000: zip と同様の機能の関数 myZip を書け
 myZip :: [a] -> [b] -> [(a, b)]
+myZip [] _ = []
+myZip _ [] = []
 myZip (x:xs) (y:ys) = (x, y) : myZip xs ys
-myZip _ _ = []
+
 
 -- Q001: Haskell の sum と同様の機能の関数 mySum を書け。
 -- (再帰を用いるパターン, foldl を用いるパターン)
@@ -24,3 +26,12 @@ mySum (x:xs) = x + mySum xs
 -- foldl
 -- mySum :: (Num a) => [a] -> a
 -- mySum = foldl (+) 0
+
+-- Q002: クイックソート関数 myQuickSort を書け
+myQuickSort :: (Ord a) => [a] -> [a]
+myQuickSort [] = []
+myQuickSort (x:xs) = myQuickSort lt ++ [x] ++ myQuickSort ge
+  where lt = [x' | x' <- xs, x' < x]
+        ge = [x' | x' <- xs, x' >= x]
+
+
