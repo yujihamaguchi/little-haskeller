@@ -1,0 +1,13 @@
+{
+  "haskell.manageHLS": "GHCup",
+  "haskell.toolchain": {
+    "hls": "2.13.0.0"
+  },
+  "haskell.serverEnvironment": {
+    "PATH": "${HOME}/.ghcup/bin:${HOME}/.local/bin:${PATH}"
+  },
+  "[haskell]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "haskell.haskell"
+  }
+}

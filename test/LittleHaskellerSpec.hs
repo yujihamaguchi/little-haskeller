@@ -1,7 +1,7 @@
 module LittleHaskellerSpec (spec) where
 
-import Test.Hspec
 import LittleHaskeller
+import Test.Hspec
 
 spec :: Spec
 spec = do
