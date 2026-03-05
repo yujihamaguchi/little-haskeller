@@ -34,3 +34,12 @@ myQuickSort (x : xs) = myQuickSort lt ++ [x] ++ myQuickSort ge
   where
     lt = [x' | x' <- xs, x' < x]
     ge = [x' | x' <- xs, x' >= x]
+
+-- Q003: product と同様の機能の関数( myProduct )を書け(再帰を用いるパターン、 reduce を用いるパターン)
+myProduct :: (Num a) => [a] -> a
+-- recursive
+myProduct [] = 1
+myProduct (x : xs) = x * myProduct xs
+
+-- foldl
+-- myProduct = foldl (*) 1

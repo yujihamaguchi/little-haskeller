@@ -31,3 +31,8 @@ spec = do
     it "8" $ myQuickSort ['c', 'b', 'a'] `shouldBe` (['a', 'b', 'c'] :: [Char])
     it "9" $ myQuickSort ['b', 'c', 'a'] `shouldBe` (['a', 'b', 'c'] :: [Char])
     it "10" $ myQuickSort ['a', 'b', 'c'] `shouldBe` (['a', 'b', 'c'] :: [Char])
+
+  describe "myProduct" $ do
+    it "1" $ myProduct [] `shouldBe` (1 :: Int)
+    it "2" $ myProduct [1] `shouldBe` (1 :: Int)
+    it "3" $ myProduct [1, 2, 3] `shouldBe` (6 :: Int)
