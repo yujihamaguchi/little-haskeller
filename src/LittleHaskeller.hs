@@ -35,7 +35,7 @@ myQuickSort (x : xs) = myQuickSort lt ++ [x] ++ myQuickSort ge
     lt = [x' | x' <- xs, x' < x]
     ge = [x' | x' <- xs, x' >= x]
 
--- Q003: product と同様の機能の関数( myProduct )を書け(再帰を用いるパターン、 reduce を用いるパターン)
+-- Q003: product と同様の機能の関数( myProduct )を書け(再帰を用いるパターン、 fold を用いるパターン)
 myProduct :: (Num a) => [a] -> a
 -- recursive
 myProduct [] = 1
@@ -43,3 +43,11 @@ myProduct (x : xs) = x * myProduct xs
 
 -- foldl
 -- myProduct = foldl (*) 1
+
+-- Q004: リストを逆順に整列する関数 reverseQuickSort を再帰を用いて書け
+reverseQuickSort :: (Ord a) => [a] -> [a]
+reverseQuickSort [] = []
+reverseQuickSort (x : xs) = reverseQuickSort ge ++ [x] ++ reverseQuickSort lt
+  where
+    ge = [x' | x' <- xs, x' >= x]
+    lt = [x' | x' <- xs, x' < x]
