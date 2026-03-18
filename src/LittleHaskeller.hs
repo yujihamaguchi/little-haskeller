@@ -54,6 +54,6 @@ reverseQuickSort (x : xs) = reverseQuickSort ge ++ [x] ++ reverseQuickSort lt
 
 -- Q005: last と同様の機能の関数 myLast を書け
 myLast :: [a] -> a
+myLast [] = error "empty list"
 myLast [x] = x
 myLast (_ : xs) = myLast xs
-myLast [] = error "empty list"
