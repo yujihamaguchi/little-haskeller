@@ -1,5 +1,6 @@
 module LittleHaskellerSpec (spec) where
 
+import Control.Exception (evaluate)
 import LittleHaskeller
 import Test.Hspec
 
@@ -44,5 +45,10 @@ spec = do
     it "4" $ reverseQuickSort [2, 3, 1] `shouldBe` ([3, 2, 1] :: [Int])
     it "5" $ reverseQuickSort [3, 2, 1] `shouldBe` ([3, 2, 1] :: [Int])
     it "6" $ reverseQuickSort [1, 2, 2, 3] `shouldBe` ([3, 2, 2, 1] :: [Int])
-    -- assert_equal [1, 0, -1], [-1, 0, 1].reverse_quick_sort
     it "7" $ reverseQuickSort [-1, 0, 1] `shouldBe` ([1, 0, -1] :: [Int])
+
+  describe "myLast" $ do
+    it "1" $ evaluate (myLast ([] :: [Int])) `shouldThrow` errorCall "empty list"
+    it "2" $ myLast [1] `shouldBe` (1 :: Int)
+    it "3" $ myLast [1, 2] `shouldBe` (2 :: Int)
+    it "4" $ myLast [1, 2, 3] `shouldBe` (3 :: Int)
