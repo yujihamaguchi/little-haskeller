@@ -57,3 +57,9 @@ myLast :: [a] -> a
 myLast [] = error "empty list"
 myLast [x] = x
 myLast (_ : xs) = myLast xs
+
+-- Q006: 偶数の長さを持つリストを半分ずつに分割する関数 halve を書け。
+halve :: [a] -> ([a], [a])
+halve xs = (take n xs, drop n xs)
+  where
+    n = (length xs) `div` 2

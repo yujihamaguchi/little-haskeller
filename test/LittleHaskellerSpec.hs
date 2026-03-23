@@ -52,3 +52,7 @@ spec = do
     it "2" $ myLast [1] `shouldBe` (1 :: Int)
     it "3" $ myLast [1, 2] `shouldBe` (2 :: Int)
     it "4" $ myLast [1, 2, 3] `shouldBe` (3 :: Int)
+
+  describe "halve" $ do
+    it "1" $ halve [1, 2] `shouldBe` (([1], [2]) :: ([Int], [Int]))
+    it "2" $ halve [1, 2, 3, 4] `shouldBe` (([1, 2], [3, 4]) :: ([Int], [Int]))
