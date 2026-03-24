@@ -56,3 +56,6 @@ spec = do
   describe "halve" $ do
     it "1" $ halve [1, 2] `shouldBe` (([1], [2]) :: ([Int], [Int]))
     it "2" $ halve [1, 2, 3, 4] `shouldBe` (([1, 2], [3, 4]) :: ([Int], [Int]))
+    it "3" $ evaluate (halve ([] :: [Int])) `shouldThrow` errorCall "argument error"
+    it "4" $ evaluate (halve ([1] :: [Int])) `shouldThrow` errorCall "argument error"
+    it "5" $ evaluate (halve ([1, 2, 3] :: [Int])) `shouldThrow` errorCall "argument error"
