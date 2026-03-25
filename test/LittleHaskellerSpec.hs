@@ -59,3 +59,13 @@ spec = do
     it "3" $ evaluate (halve ([] :: [Int])) `shouldThrow` errorCall "argument error"
     it "4" $ evaluate (halve ([1] :: [Int])) `shouldThrow` errorCall "argument error"
     it "5" $ evaluate (halve ([1, 2, 3] :: [Int])) `shouldThrow` errorCall "argument error"
+
+  describe "myConcat" $ do
+    it "1" $ myConcat [] `shouldBe` ([] :: [Int])
+    it "2" $ myConcat [[]] `shouldBe` ([] :: [Int])
+    it "3" $ myConcat [[1, 2]] `shouldBe` ([1, 2] :: [Int])
+    it "4" $ myConcat [[1, 2], []] `shouldBe` ([1, 2] :: [Int])
+    it "5" $ myConcat [[], [1, 2]] `shouldBe` ([1, 2] :: [Int])
+    it "6" $ myConcat [[1, 2], [3]] `shouldBe` ([1, 2, 3] :: [Int])
+    it "7" $ myConcat [[1], [2, 3]] `shouldBe` ([1, 2, 3] :: [Int])
+    it "8" $ myConcat [[1, 2], [3, 4]] `shouldBe` ([1, 2, 3, 4] :: [Int])

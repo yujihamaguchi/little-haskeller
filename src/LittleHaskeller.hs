@@ -66,3 +66,12 @@ halve xs
   where
     len = length xs
     n = len `div` 2
+
+-- Q007: myConcat を書け。(再帰と reduce)
+-- 再帰
+myConcat :: [[a]] -> [a]
+myConcat [] = []
+myConcat (x : xs) = x ++ myConcat xs
+
+-- reduce
+-- todo
